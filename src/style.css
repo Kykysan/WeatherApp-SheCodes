@@ -41,6 +41,10 @@ footer {
   font-family: monospace;
 }
 
+.github {
+  text-decoration: none;
+}
+
 .container {
   margin-top: 10px;
   border-radius: 30px;
