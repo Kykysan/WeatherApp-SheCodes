@@ -41,18 +41,18 @@ footer {
   font-family: monospace;
 }
 
-.github {
-  text-decoration: none;
-}
-
 .container {
   margin-top: 10px;
   border-radius: 30px;
   display: block;
-  border-block-end-width: 500px;
-  max-width: 500px;
-  max-height: 600px;
+  border-block-end-width: 600px;
+  max-width: 600px;
+  max-height: 1000px;
   background-image: linear-gradient(to top, #93fffa 0%, #e7c3fc 100%);
+}
+
+.github {
+  text-decoration: none;
 }
 
 .currentForecast {
@@ -97,6 +97,7 @@ footer {
 
 .forecastWeek {
   font-size: 20px;
+  color: black;
 }
 
 .forecastWeek {
