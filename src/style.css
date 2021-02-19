@@ -43,9 +43,9 @@ footer {
 
 .container {
   margin-top: 10px;
+  border: 1px gray;
   border-radius: 30px;
   display: block;
-  border-block-end-width: 500px;
   max-width: 700px;
   max-height: 600px;
   background-image: linear-gradient(to top, #93fffa 0%, #e7c3fc 100%);
