@@ -76,7 +76,6 @@ footer {
 
 .celsius {
   text-decoration: none;
-  color: white;
 }
 
 .celsius:hover {
@@ -104,4 +103,8 @@ footer {
 
 .col-2:hover {
   color: #b088f9;
+}
+
+#git-hub {
+  text-decoration: none;
 }
