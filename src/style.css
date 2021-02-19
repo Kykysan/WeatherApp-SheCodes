@@ -76,16 +76,22 @@ footer {
 
 .celsius {
   text-decoration: none;
+  font-size: 20px;
+  position: relative;
+  top: -20px;
+  color: white;
 }
 
 .celsius:hover {
   color: #b088f9;
-  text-decoration: none;
 }
 
 .fahrenheit {
   text-decoration: none;
   color: white;
+  font-size: 20px;
+  position: relative;
+  top: -20px;
 }
 
 .fahrenheit {

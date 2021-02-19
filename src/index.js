@@ -1,4 +1,3 @@
-//Feature #1 Display time
 function formatDate(now) {
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let months = [
@@ -31,7 +30,7 @@ let now = new Date();
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate(now);
 
-//Feature #2 Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
+
 function showCityValue(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#search-input");
@@ -43,7 +42,7 @@ function showCityValue(event) {
 let searchForm = document.querySelector("#search-engine");
 searchForm.addEventListener("submit", showCityValue);
 
-//Week 5 C HW C1 On your project, when a user searches for a city (example: New York), it should display the name of the city on the result page and the current temperature of the city.
+
 function searchCity(city) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
