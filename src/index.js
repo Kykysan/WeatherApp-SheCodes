@@ -46,7 +46,7 @@ searchForm.addEventListener("submit", showCityValue);
 function searchCity(city) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let units = "metric";
+  let units = "imperial";
   let apiUrl = `${endPoint}${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentConditions);
 }
@@ -83,7 +83,7 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
-  let units = "metric";
+  let units = "imperial";
 
   let apiPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiPositionUrl).then(showLocationTemp);
