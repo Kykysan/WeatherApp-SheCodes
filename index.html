@@ -23,7 +23,7 @@
     ></script>
 </head>
 <body>
-    <div class="container">
+     <div class="container">
       <form class="searchEngine" id="search-engine">
         <input type="search" id ="search-input" placeholder="Enter City" autofocus />
         <button class="searchButton" type="button">Search</button>
@@ -48,36 +48,27 @@
       <div class="currentForecast">
           <div class="row row-cols-auto">
             <div class="col-6">
-              <ul class="dateDescr">
-                <li>
-                  <div class ="currentDate"id="current-date">
+              <span id="current-date">
                 Saturday, 12:00
-                </div>
-                </li>
-                <li>
-                  <div class="description" id="description">
+              </span>
+                <br />
+                <span id="description">
                 Mostly sunny
-                </div>
-                </li>
-              </ul>
+                </span>
             </div>
             <div class="col-6">
-              <ul class="humdityWind">
-                <li>
+              <div class="humidity">
                 Humidity: 
                 <span id="humidity">
                 20
                 </span>
                 %
-                </li>
-                <li>
+                <br />
                 Wind:
                 <span id="wind-speed">
                 4
                 </span>
                 mph
-                </li>
-              </ul>              
               </div>
             </div>
           </div>          
@@ -124,10 +115,7 @@
         </div>
       </div>
     </div>
-    <footer>
-      <a href="https://github.com/Kykysan/WeatherApp-SheCodes" target="_blank" class="gitHub">Open Source Code,</a>
-      by Kylee San Miguel
-    </footer>
+    <footer>Coded by Kylee San Miguel</footer>
     <script src="src/index.js"></script>
 </body>
 </html>

@@ -45,20 +45,19 @@ footer {
   margin-top: 10px;
   border-radius: 30px;
   display: block;
-  border-block-end-width: 600px;
-  max-width: 600px;
-  max-height: 1000px;
+  border-block-end-width: 500px;
+  max-width: 700px;
+  max-height: 600px;
   background-image: linear-gradient(to top, #93fffa 0%, #e7c3fc 100%);
-}
-
-.github {
-  text-decoration: none;
 }
 
 .currentForecast {
   font-style: italic;
   font-size: 18px;
   padding: 5px 0 0 35px;
+}
+.humidity {
+  padding: 0 0 0 120px;
 }
 
 .currentTemperature {
@@ -97,7 +96,6 @@ footer {
 
 .forecastWeek {
   font-size: 20px;
-  color: black;
 }
 
 .forecastWeek {
