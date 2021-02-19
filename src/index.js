@@ -68,6 +68,10 @@ function showCurrentConditions(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
+
+  let icon = document.querySelector("#current-icon");
+  icon.setAttribute("src", `http://openweathermap/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.setAttribute("alt",response.data.weather[0].description);
 }
 
 function showLocationTemp(response) {
