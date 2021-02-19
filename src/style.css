@@ -101,3 +101,7 @@ footer {
 .forecastWeek {
   text-align: center;
 }
+
+.col-2:hover {
+  color: #b088f9;
+}
