@@ -69,9 +69,11 @@ function showCurrentConditions(response) {
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
 
-  let icon = document.querySelector("#current-icon");
-  icon.setAttribute("src", `http://openweathermap/img/wn/${response.data.weather[0].icon}@2x.png`);
-  icon.setAttribute("alt",response.data.weather[0].description);
+  let currentIcon= `<img src=${`icons/${response.data.weather[0].icon}.svg`} href= https://fontawesome.com/license height=100px width=100px/>`;
+  let icon = document.querySelector (`#current-icon`);
+  icon.innerHTML=currentIcon;
+
+
 }
 
 function showLocationTemp(response) {
