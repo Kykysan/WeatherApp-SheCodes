@@ -52,15 +52,19 @@ searchForm.addEventListener("submit", showCityValue);
 
 function displayForecast(response){
   let forecastElement = document.querySelector("#forecast");
-  let forecast = response.data.list[0];
+  forecastElement.innerHTML = null;
+  let forecast = null;
 
-  forecastElement.innerHTML =`<div class="col-2">
+  for (let index = 0; index <6; index ++){
+    forecast = response.data.list [index];
+    forecastElement.innerHTML += `<div class="col-2">
           <h3>${formatHours(forecast.dt * 1000)}</h3>
           <h4 class="forecastWeatherIcon">
             <i class="${getIcon(forecast.weather[0].icon)}</i>
           </h4>
           <div class="weatherForecastTemperature"><strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
         </div>`;
+}
 }
 
 function searchCity(city) {
@@ -139,10 +143,10 @@ function showLocationTemp(response) {
 }
 
 function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
-  let units = "imperial";
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;  
+  let units = "metric";
 
   let apiPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiPositionUrl).then(showLocationTemp);
