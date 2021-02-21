@@ -69,36 +69,37 @@ function showCurrentConditions(response) {
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
 
-  let currentWeatherIcon=document.querySelector("#current-icon");
-  let weatherIcon = response.data.weather[0].icon;
-  if (weatherIcon ==="01d"){
-    return `<i class="fas fa-sun"></i>`;
-  } else if (weatherIcon === "01n"){
-    return `<i class="fas fa-moon"></i>`;
-  } else if (weatherIcon === "02d"){
-    return `<i class="fas fa-cloud-sun"></i>`;
-  }else if (weatherIcon==="02n"){
-    return `<i class="fas fa-cloud-moon"></i>`;
-  } else if(weatherIcon === "03d" || weatherIcon === "03n"){
-    return `<i class="fas fa-cloud"></i>`;
-  }else if (weatherIcon === "04d" || weatherIcon === "04n"){
-    return `<i class="fas fa-cloud"></i>`;    
-  }else if (weatherIcon === "09d" || weatherIcon === "09n"){
-    return `<i class="fas fa-cloud-rain"></i>`;
-  } else if (weatherIcon === "10d"){
-    return `<i class="fas fa-cloud-sun-rain"></i>`;
-  } else if(weatherIcon === "10n"){
-    return `<i class="fas fa-cloud-moon-rain"></i>`;
-  }else if (weatherIcon === "13d" || weatherIcon === "13n"){
-    return `<i class="far fa-snowflake"></i>`;
-  }else if (weatherIcon === "50d" || weatherIcon === "50n"){
-    return `<i class="fas fa-smog"></i>`;
-  }
-  currentWeatherIcon.innerHTML = weatherIcon;
-
-
   celsiusTemperature = response.data.main.temp;
+
+  let currentWeatherIcon=document.querySelector("#current-icon");
+  if (response.data.weather[0].icon === "01d"){
+    currentWeatherIcon.setAttribute ("class", "fas fa-sun");
+  } else if (response.data.weather[0].icon === "01n"){
+    currentWeatherIcon.setAttribute("class","fas fa-moon");
+  } else if (response.data.weather[0].icon === "02d"){
+    currentWeatherIcon.setAttribute("class","fas fa-cloud-sun");
+  } else if (response.data.weather[0].icon === "02n"){
+    currentWeatherIcon.setAttribute("class","fas fa-cloud-moon");
+  }else if (response.data.weather[0].icon ==="03d" || response.data.weather[0].icon === "03n"){
+    currentWeatherIcon.setAttribute("class", "fas fa-cloud");
+  } else if (response.data.weather[0].icon === "04d" || response.data.weather[0].icon === "04n"){
+    currentWeatherIcon.setAttribute("class", "fas fa-cloud");
+  } else if (response.data.weather[0].icon === "09d" || response.data.weather[0].icon === "09n"){
+    currentWeatherIcon.setAttribute("class", "fas fa-cloud-rain");
+  } else if (response.data.weather[0].icon ==="10d"){
+    currentWeatherIcon.setAttribute("class","fa-cloud-sun-rain");
+  } else if (response.data.weather[0].icon ==="10n"){
+    currentWeatherIcon.setAttribute("class", "fas fa-cloud-moon-rain");
+  } else if (response.data.weather[0].icon ==="11d" || response.data.weather[0].icon === "11n"){
+    currentWeatherIcon.setAttribute("class","fas fa-bolt");
+  } else if (response.data.weather[0].icon ==="13d" || response.data.weather[0].icon === "13n"){
+    currentWeatherIcon.setAttribute("class","far fa-snowflake");
+  } else if (response.data.weather [0].icon ==="50d" || response.data.weather[0].icon ==="50n"){
+    currentWeatherIcon.setAttribute("class","fas fa-smong");
+  }
 }
+
+
 
 function showLocationTemp(response) {
   let temperature = Math.round(response.data.main.temp);
