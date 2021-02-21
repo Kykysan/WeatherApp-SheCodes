@@ -83,11 +83,26 @@ footer {
 }
 
 .forecastWeek {
-  font-size: 20px;
+  text-align: center;
 }
 
-.forecastWeek {
-  text-align: center;
+.forecastWeek h3 {
+  font-size: 15px;
+  height: 20px;
+  line-height: 24px;
+  margin-block-end: 4px;
+}
+
+.forecastWeek h4 {
+  line-height: 16px;
+  font-size: 35px;
+  margin-block-end: 4px;
+}
+
+.forecastWeek p {
+  line-height: 24px;
+  font-size: 15px;
+  padding: 0 0 15px 0;
 }
 
 .col-2:hover {
@@ -116,7 +131,7 @@ footer {
 }
 
 #current-icon {
-  font-size: 75px;
+  font-size: 100px;
   position: relative;
   left: 250px;
 }
