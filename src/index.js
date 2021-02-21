@@ -1,4 +1,5 @@
-function formatDate(now) {
+function formatDate(timestamp) {
+  let date = new Date (timestamp);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let months = [
     "Jan",
@@ -14,22 +15,28 @@ function formatDate(now) {
     "Nov",
     "Dec"
   ];
-  let currentDay = days[now.getDay()];
-  let currentMonth = months[now.getMonth()];
-  let date = now.getDate();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+  let currentDay = days[date.getDay()];
+  let currentMonth = months[date.getMonth()];
 
-  return `${currentDay}, ${currentMonth} ${date}, ${hours}:${minutes}`;
+  return `${currentDay}, ${currentMonth}, ${formatHours(timestamp)}`;
 }
 
 let now = new Date();
 let currentDate = document.querySelector("#current-date");
 currentDate.innerHTML = formatDate(now);
 
+function formatHours (timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours <10){
+    hours =`0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;}
+  
+  return `${hours}:${minutes}`;
+  }
 
 function showCityValue(event) {
   event.preventDefault();
@@ -43,12 +50,28 @@ let searchForm = document.querySelector("#search-engine");
 searchForm.addEventListener("submit", showCityValue);
 
 
+function displayForecast(response){
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.list[0];
+
+  forecastElement.innerHTML =`<div class="col-2">
+          <h3>${formatHours(forecast.dt * 1000)}</h3>
+          <h4 class="forecastWeatherIcon">
+            <i class="${getIcon(forecast.weather[0].icon)}</i>
+          </h4>
+          <div class="weatherForecastTemperature"><strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
+        </div>`;
+}
+
 function searchCity(city) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
   let units = "metric";
   let apiUrl = `${endPoint}${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentConditions);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}$units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showCurrentConditions(response) {
