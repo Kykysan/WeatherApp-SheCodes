@@ -69,10 +69,7 @@ function showCurrentConditions(response) {
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
 
-  let currentIcon= `<img src=${`Icons/${response.data.weather[0].icon}.svg`} href= https://fontawesome.com/license height=100px width=100px/>`;
-  let icon = document.querySelector (`#current-icon`);
-  icon.innerHTML=currentIcon;
-
+  
   celsiusTemperature = response.data.main.temp;
 }
 
