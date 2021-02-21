@@ -69,37 +69,42 @@ function showCurrentConditions(response) {
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
 
-  celsiusTemperature = response.data.main.temp;
+  let iconElement = document.querySelector("#current-icon");
+  iconElement.setAttribute("class", getIcon(response.data.weather[0].icon));
 
-  let currentWeatherIcon=document.querySelector("#current-icon");
-  if (response.data.weather[0].icon === "01d"){
-    currentWeatherIcon.setAttribute ("class", "fas fa-sun");
-  } else if (response.data.weather[0].icon === "01n"){
-    currentWeatherIcon.setAttribute("class","fas fa-moon");
-  } else if (response.data.weather[0].icon === "02d"){
-    currentWeatherIcon.setAttribute("class","fas fa-cloud-sun");
-  } else if (response.data.weather[0].icon === "02n"){
-    currentWeatherIcon.setAttribute("class","fas fa-cloud-moon");
-  }else if (response.data.weather[0].icon ==="03d" || response.data.weather[0].icon === "03n"){
-    currentWeatherIcon.setAttribute("class", "fas fa-cloud");
-  } else if (response.data.weather[0].icon === "04d" || response.data.weather[0].icon === "04n"){
-    currentWeatherIcon.setAttribute("class", "fas fa-cloud");
-  } else if (response.data.weather[0].icon === "09d" || response.data.weather[0].icon === "09n"){
-    currentWeatherIcon.setAttribute("class", "fas fa-cloud-rain");
-  } else if (response.data.weather[0].icon ==="10d"){
-    currentWeatherIcon.setAttribute("class","fa-cloud-sun-rain");
-  } else if (response.data.weather[0].icon ==="10n"){
-    currentWeatherIcon.setAttribute("class", "fas fa-cloud-moon-rain");
-  } else if (response.data.weather[0].icon ==="11d" || response.data.weather[0].icon === "11n"){
-    currentWeatherIcon.setAttribute("class","fas fa-bolt");
-  } else if (response.data.weather[0].icon ==="13d" || response.data.weather[0].icon === "13n"){
-    currentWeatherIcon.setAttribute("class","far fa-snowflake");
-  } else if (response.data.weather [0].icon ==="50d" || response.data.weather[0].icon ==="50n"){
-    currentWeatherIcon.setAttribute("class","fas fa-smong");
-  }
+  celsiusTemperature = response.data.main.temp;
 }
 
-
+function getIcon(icon){
+  let iconElement ="";
+  if (icon === "01d"){
+    iconElement = "fas fa-sun";
+  }else if (icon === "01n"){
+    iconElement = "fas fa-moon";
+  }else if (icon === "02d"){
+    iconElement ="fas fa-cloud-sun";
+  }else if (icon === "02n"){
+    iconElement = "fas fa-clound-moon";
+  }else if (icon === "03d" || icon === "03n"){
+    iconElement = "fas fa-cloud";
+  } else if (icon === "04d" || icon === "04n"){
+    iconElement = "fas fa-cloud";
+  } else if (icon === "09d" || icon === "09n"){
+    iconElement = "fas fa-cloud-rain";
+  }else if (icon === "10d"){
+    iconElement = "fa-cloud-sun-rain";
+  }else if (icon === "10n"){
+    iconElement = "fas fa-cloud-moon-rain";
+  }else if (icon === "11d" || icon === "11n"){
+    iconElement = "fas fa-bolt";
+  }else if (icon === "13d" || icon === "13n"){
+    iconElement = "far fa-snowflake";
+  }else if (icon === "50d" || icon === "50n"){
+    iconElement = "fas fa-smog";
+  }
+  
+  return iconElement;
+}
 
 function showLocationTemp(response) {
   let temperature = Math.round(response.data.main.temp);

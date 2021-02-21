@@ -65,15 +65,6 @@ footer {
   margin: 0 auto;
 }
 
-.currentWeather {
-  font-size: 70px;
-  margin: 0 auto;
-  border-radius: 50px;
-  background: rgba(218, 136, 249, 30%);
-  width: 100px;
-  height: 100px;
-}
-
 .celsius {
   position: relative;
 }
@@ -122,6 +113,12 @@ footer {
 
 #fahrenheit-link:hover {
   color: #93fffa;
+}
+
+#current-icon {
+  font-size: 75px;
+  position: relative;
+  left: 250px;
 }
 
 #git-hub {
