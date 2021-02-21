@@ -69,9 +69,11 @@ function showCurrentConditions(response) {
   let wind = document.querySelector("#wind-speed");
   wind.innerHTML = windSpeed;
 
-  let currentIcon= `<img src=${`icons/${response.data.weather[0].icon}.svg`} href= https://fontawesome.com/license height=100px width=100px/>`;
+  let currentIcon= `<img src=${`Icons/${response.data.weather[0].icon}.svg`} href= https://fontawesome.com/license height=100px width=100px/>`;
   let icon = document.querySelector (`#current-icon`);
   icon.innerHTML=currentIcon;
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function showLocationTemp(response) {
@@ -95,4 +97,29 @@ function showPosition(position) {
 
 navigator.geolocation.getCurrentPosition(showPosition);
 
+function displayFahrenheitTemperature(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector ("#current-temperature");
+
+  celsiusLink.classList.remove ("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature *9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature (event){
+  event.preventDefault();
+  celsiusLink.classList.add ("active");
+  fahrenheitLink.classList.remove ("active");
+  let temperatureElement =document.querySelector("#current-temperature");
+  temperatureElement.innerHTML=Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink= document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener ("click", displayCelsiusTemperature);
 
