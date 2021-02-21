@@ -46,7 +46,7 @@ searchForm.addEventListener("submit", showCityValue);
 function searchCity(city) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let units = "imperial";
+  let units = "metric";
   let apiUrl = `${endPoint}${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentConditions);
 }
@@ -72,8 +72,6 @@ function showCurrentConditions(response) {
   let currentIcon= `<img src=${`icons/${response.data.weather[0].icon}.svg`} href= https://fontawesome.com/license height=100px width=100px/>`;
   let icon = document.querySelector (`#current-icon`);
   icon.innerHTML=currentIcon;
-
-
 }
 
 function showLocationTemp(response) {
@@ -96,3 +94,5 @@ function showPosition(position) {
 }
 
 navigator.geolocation.getCurrentPosition(showPosition);
+
+
