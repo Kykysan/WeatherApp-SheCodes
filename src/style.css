@@ -83,6 +83,9 @@ img {
 }
 
 .celsius {
+  position: relative;
+}
+.celsius .active {
   text-decoration: none;
   color: white;
   font-size: 25px;
@@ -90,13 +93,7 @@ img {
   top: -17px;
 }
 
-.celsius:hover {
-  color: #b088f9;
-}
-
 .fahrenheit {
-  text-decoration: none;
-  color: white;
   font-size: 25px;
   position: relative;
   top: -17px;
@@ -112,6 +109,27 @@ img {
 
 .col-2:hover {
   color: #b088f9;
+}
+
+#celsius-link {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+  position: relative;
+  top: -17px;
+}
+
+#celsius-link:hover {
+  color: #93fffa;
+}
+
+#fahrenheit-link {
+  text-decoration: none;
+  color: #b088f9;
+}
+
+#fahrenheit-link:hover {
+  color: #93fffa;
 }
 
 #git-hub {
