@@ -34,7 +34,11 @@
         <button class="searchButton" type="button">
           <i class="fas fa-search-location"></i>
         </button>
-        <button class="currentLocationButton" type="button">
+        <button
+          class="currentLocationButton"
+          id="location-button"
+          type="button"
+        >
           <i class="fas fa-map-marked-alt"></i>
         </button>
       </form>
@@ -62,17 +66,17 @@
             <div class="humidity">
               Humidity:
               <span id="humidity"> 20 </span>
-              %
+              % <i class="fas fa-tint"></i>
               <br />
               Wind:
               <span id="wind-speed"> 4 </span>
-              mph
+              mph <i class="fas fa-wind"></i>
             </div>
           </div>
         </div>
       </div>
       <h2>3 Hour Forecast</h2>
-      <div class="row forecastWeek" id="forecast"></div>
+      <div class="row row-cols-6 forecastWeek" id="forecast"></div>
     </div>
     <footer>
       <a
