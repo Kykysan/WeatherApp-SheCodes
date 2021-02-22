@@ -94,7 +94,7 @@ footer {
   margin: 10px 80px 10px;
 }
 
-.col-2:hover {
+.col-sm-2:hover {
   color: #b088f9;
 }
 
@@ -123,6 +123,11 @@ footer {
   font-size: 100px;
   position: relative;
   left: 270px;
+}
+
+#forecast {
+  margin: 0 auto;
+  padding-left: 25px;
 }
 
 #git-hub {
