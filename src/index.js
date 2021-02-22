@@ -38,40 +38,12 @@ function formatHours (timestamp) {
   return `${hours}:${minutes}`;
 }
 
-function displayForecast(response){
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index <6; index ++){
-    forecast = response.data.list [index];
-    forecastElement.innerHTML += `<div class="col-2">
-          <h3>${formatHours(forecast.dt * 1000)}</h3>
-          <h4 class="forecastWeatherIcon">
-            <i class="${getIcon(forecast.weather[0].icon)}</i>
-          </h4>
-          <div class="weatherForecastTemperature"><strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
-        </div>`;
-  }
-}
-
 function showCurrentConditions(response) {
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector("#current-temperature");
-  currentTemp.innerHTML = `${temperature}`;
-
-  let description = response.data.weather[0].main;
-  let currentDescription = document.querySelector("#description");
-  currentDescription.innerHTML = description;
-
-  let humidity = response.data.main.humidity;
-  let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = humidity;
-
-  let windSpeed = Math.round(response.data.wind.speed);
-  let wind = document.querySelector("#wind-speed");
-  wind.innerHTML = windSpeed;
+  document.querySelector("#current-temperature").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
 
   let iconElement = document.querySelector("#current-icon");
   iconElement.setAttribute("class", getIcon(response.data.weather[0].icon));
@@ -151,6 +123,22 @@ function search(event) {
 let searchForm = document.querySelector("#search-engine");
 searchForm.addEventListener("submit", search);
 
+function displayForecast(response){
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index <6; index ++){
+    forecast = response.data.list [index];
+    forecastElement.innerHTML += `<div class="col-2">
+          <h3>${formatHours(forecast.dt * 1000)}</h3>
+          <h4 class="forecastWeatherIcon">
+            <i class="${getIcon(forecast.weather[0].icon)}</i>
+          </h4>
+          <div class="weatherForecastTemperature"><strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
+        </div>`;
+  }
+}
 
 function displayFahrenheitTemperature(event){
   event.preventDefault();
