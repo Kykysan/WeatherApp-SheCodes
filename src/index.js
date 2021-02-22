@@ -82,26 +82,23 @@ function getIcon(icon){
   return iconElement;
 }
 
-function showLocationTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let city = response.data.main.location;
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${city}`;
-  let currentTemperature = document.querySelector("#current-temperature");
-  currentTemperature.innerHTML = `${temperature}`;
-}
-
-function showPosition(position) {
+function searchLocation(position) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;  
   let units = "metric";
 
   let apiPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-  axios.get(apiPositionUrl).then(showLocationTemp);
+  axios.get(apiPositionUrl).then(showCurrentConditions);
 }
 
-navigator.geolocation.getCurrentPosition(showPosition);
+function getCurrentLocation (event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentLocation(searchLocation);
+}
+
+let currentLocationButton = document.querySelector("#location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function search(event) {
   event.preventDefault();
