@@ -97,7 +97,7 @@ function getCurrentLocation (event){
   navigator.geolocation.getCurrentLocation(searchLocation);
 }
 
-let currentLocationButton = document.querySelector("#location-button");
+let currentLocationButton = document.querySelector(".currentLocationButton");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function search(event) {
@@ -109,11 +109,11 @@ function search(event) {
   let apiKey = "75d7bfe843745f5a8219306b602ef7d5";
   let endPoint = "https://api.openweathermap.org/data/2.5/weather?q=";
   let units = "metric";
-  let city = document.querySelector("#city-input").value;
+  let city = document.querySelector("#search-input").value;
   let apiUrl = `${endPoint}${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentConditions);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}$units=${units}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -127,12 +127,16 @@ function displayForecast(response){
 
   for (let index = 0; index <6; index ++){
     forecast = response.data.list [index];
-    forecastElement.innerHTML += `<div class="col-2">
+    forecastElement.innerHTML += `
+    <div class ="row">
+    <div class="col-2">
           <h3>${formatHours(forecast.dt * 1000)}</h3>
           <h4 class="forecastWeatherIcon">
-            <i class="${getIcon(forecast.weather[0].icon)}</i>
-          </h4>
-          <div class="weatherForecastTemperature"><strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
+            <i class="${getIcon(forecast.weather[0].icon)}"></i>
+            </h4>
+          <div class="weatherForecastTemperature">
+            <strong>${Math.round(forecast.main.temp_max)}°</strong>${Math.round(forecast.main.temp_min)}°</div>
+        </div>
         </div>`;
   }
 }
