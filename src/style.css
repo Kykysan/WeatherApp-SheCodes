@@ -16,6 +16,14 @@ footer {
   text-align: center;
 }
 
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 40px;
+}
+
 form {
   margin: 0 auto;
   padding-top: 20px;
@@ -82,27 +90,8 @@ footer {
   top: -17px;
 }
 
-.forecastWeek {
-  text-align: center;
-}
-
-.forecastWeek h3 {
-  font-size: 15px;
-  height: 20px;
-  line-height: 24px;
-  margin-block-end: 4px;
-}
-
-.forecastWeek h4 {
-  line-height: 16px;
-  font-size: 35px;
-  margin-block-end: 4px;
-}
-
-.forecastWeek p {
-  line-height: 24px;
-  font-size: 15px;
-  padding: 0 0 20px 0;
+.col-2 {
+  margin: 10px 80px 10px;
 }
 
 .col-2:hover {
@@ -133,7 +122,7 @@ footer {
 #current-icon {
   font-size: 100px;
   position: relative;
-  left: 250px;
+  left: 270px;
 }
 
 #git-hub {
