@@ -44,6 +44,7 @@ function showCurrentConditions(response) {
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("h1").innerHTML=response.data.name;
 
   let iconElement = document.querySelector("#current-icon");
   iconElement.setAttribute("class", getIcon(response.data.weather[0].icon));
@@ -87,6 +88,7 @@ function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;  
   let units = "metric";
+
 
   let apiPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiPositionUrl).then(showCurrentConditions);
