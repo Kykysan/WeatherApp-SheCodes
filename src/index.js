@@ -90,7 +90,11 @@ function searchLocation(position) {
 
   let apiPositionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiPositionUrl).then(showCurrentConditions);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
+
 
 function getCurrentLocation (event){
   event.preventDefault();
